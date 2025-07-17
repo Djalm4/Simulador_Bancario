@@ -5,20 +5,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        //Transacao transacao = new Transacao();
+        BancoCliente clienteNovo = new BancoCliente();
+
         printTitulo("Bem_Vindo ao Banco");
         System.out.println("Boa Noite");
 
         Scanner entrada = new Scanner(System.in);
 
         System.out.println("Qual serviço deseja: ");
-        System.out.println("1 - Ver Conta\n2 - Transação\n3 - Deposito\n4 - Saque");
+        System.out.println("1 - Adicionar conta\n2 - Transação\n3 - Deposito\n4 - Saque\n5 - Ver Clientes");
         int escolha = entrada.nextInt();
 
         switch (escolha){
             case 1:
-                printTitulo("Ver conta");
+                printTitulo("Adiconar conta");
                 //Add metodo depois
-                //Escolher a minha conta com o numero
+                //Criar a conta
                 //Mostrar
                 break;
 
@@ -37,16 +40,18 @@ public class Main {
 
             case 4:
                 printTitulo("saque");
-                //Add metodo para saque
-                //Nao pode sacar 0(Zero)
-                //Fazer conta dentro do metodo saque
+//                transacao.Saque();
                 break;
+
+            case 5:
+                printTitulo("Clientes");
+
         }
     }
 
     public static void printTitulo (String Titulo){
         System.out.println("----------------------------------------------");
-        System.out.printf("           %s%n", Titulo.toUpperCase());
+        System.out.printf("                  %s%n", Titulo.toUpperCase());
         System.out.println("----------------------------------------------");
     }
 }

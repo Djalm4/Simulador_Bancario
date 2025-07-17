@@ -1,9 +1,9 @@
 public class Transacao {
 
-    int idTransacao;
-    String tipo;
-    double valor;
-    Conta conta;
+    private int idTransacao;
+    private String tipo;
+    private double valor;
+    private Conta conta;
 
     public Transacao(int idTransacao, String tipo, double valor, Conta conta) {
         this.idTransacao = idTransacao;
@@ -42,5 +42,15 @@ public class Transacao {
 
     public void setConta(Conta conta) {
         this.conta = conta;
+    }
+
+    public boolean Saque(double valor){
+        if(valor > 0 && valor <= conta.getSaldo()){ //Faz verificação
+            conta.setSaldo(conta.getSaldo() - valor); //Seta o valor da conta
+            return true;
+        }
+        else{
+
+        }return false;
     }
 }
