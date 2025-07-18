@@ -6,8 +6,12 @@ public class BancoCliente {
     private ArrayList<Cliente> clientes;
     private int proxId = 1;
 
+    public BancoCliente(){
+        clientes = new ArrayList<>();
+    }
+
     public Cliente criarCliente(){
-        String[] nomes = {"Djalma", "Lucas", "Ana", "João", "Bruna", "Fernanda", "Carlos"};
+        String[] nomes = {"Mario", "Lucas", "Ana", "João", "Bruna", "Bruno","Fernanda", "Carlos", "Renato", "Renata"};
         String nome = nomes[random.nextInt(nomes.length)];;
         int idade = random.nextInt(60) + 18;
         String cpf = gerarCpf();
