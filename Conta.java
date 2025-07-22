@@ -6,6 +6,10 @@ public class Conta {
     private String tipo;
     private Cliente cliente;
 
+    public Conta(){
+
+    }
+
     public Conta(int idConta, int numero, double saldo, String tipo, Cliente cliente) {
         this.idConta = idConta;
         this.numero = numero;
@@ -52,5 +56,14 @@ public class Conta {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public void Deposito(double saldo){
+        if(saldo > 0){
+            this.saldo += saldo;
+        }
+        else{
+            System.out.println("Valor Invalido");
+        }
     }
 }

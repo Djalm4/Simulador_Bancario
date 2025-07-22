@@ -7,6 +7,7 @@ public class Main {
 
         //Transacao transacao = new Transacao();
         BancoCliente clienteNovo = new BancoCliente();
+        Conta conta = new Conta();
 
         printTitulo("Bem_Vindo ao Banco");
         System.out.println("Boa Noite");
@@ -36,9 +37,10 @@ public class Main {
 
                 case 3:
                     printTitulo("Deposito");
-                    //Add metodo para deposito
-                    //Não pode ser add 0(Zero)
-                    //Fazer a conta no metodo e depois mostrar aqui
+                    System.out.println("Qual valor deseja depositar: ");
+                    double valor = entrada.nextDouble();
+                    conta.Deposito(valor);
+                    System.out.println("Valor depositado é de R$"+valor);
                     printTitulo("");
                     break;
 
