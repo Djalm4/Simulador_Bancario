@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //Transacao transacao = new Transacao();
         BancoCliente clienteNovo = new BancoCliente();
         Conta conta = new Conta();
+        Transacao transacao = new Transacao();
 
         printTitulo("Bem_Vindo ao Banco");
         System.out.println("Boa Noite");
@@ -17,7 +17,7 @@ public class Main {
 
         do {
             System.out.println("Qual serviço deseja: ");
-            System.out.println("1 - Adicionar conta\n2 - Transação\n3 - Deposito\n4 - Saque\n5 - Ver Clientes\n6 - Sair");
+            System.out.println("1 - Adicionar conta\n2 - Movimentação\n3 - Deposito\n4 - Saque\n5 - Ver Clientes\n6 - Sair");
             escolha = entrada.nextInt();
 
             switch (escolha) {
@@ -29,24 +29,29 @@ public class Main {
                     break;
 
                 case 2:
-                    printTitulo("transação");
-                    //Add metodo para a transação
-                    //Add o valor da transação e tipo
+                    printTitulo("Transações realizadas");
+                    transacao.mostrarResumo();
                     printTitulo("");
                     break;
 
                 case 3:
                     printTitulo("Deposito");
                     System.out.println("Qual valor deseja depositar: ");
-                    double valor = entrada.nextDouble();
-                    conta.Deposito(valor);
-                    System.out.println("Valor depositado é de R$"+valor);
+                    double valorDeposito = entrada.nextDouble();
+                    conta.deposito(valorDeposito);
+                    transacao.registrarMovimentacao(valorDeposito);
+                    System.out.printf("Valor depositado é de R$%.2f\n", valorDeposito);
                     printTitulo("");
                     break;
 
                 case 4:
-                    printTitulo("saque");
-                    //Add metodo de saque
+                    printTitulo("Saque");
+                    System.out.println("Qual valor deseja sacar: ");
+                    double valorSaque = entrada.nextDouble();
+                    conta.saque(valorSaque);
+                    transacao.registrarMovimentacao(valorSaque);
+                    transacao.registroSaque(valorSaque);
+                    System.out.printf("Valor de saque é de R$%.2f\n", valorSaque);
                     printTitulo("");
                     break;
 
@@ -64,7 +69,7 @@ public class Main {
 
     public static void printTitulo (String Titulo){
         System.out.println("----------------------------------------------");
-        System.out.printf("                  %s%n", Titulo.toUpperCase());
+        System.out.printf("                %s%n", Titulo.toUpperCase());
         System.out.println("----------------------------------------------");
     }
 }

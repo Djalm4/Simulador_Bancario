@@ -58,7 +58,7 @@ public class Conta {
         this.cliente = cliente;
     }
 
-    public void Deposito(double saldo){
+    public void deposito(double saldo){
         if(saldo > 0){
             this.saldo += saldo;
         }
@@ -66,4 +66,14 @@ public class Conta {
             System.out.println("Valor Invalido");
         }
     }
+
+    public void saque(double saldo){
+        if(saldo > 0){
+            this.saldo -= saldo;
+        }
+        else{
+            System.out.println("Valor Invalido");
+        }
+    }
+
 }

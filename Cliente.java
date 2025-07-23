@@ -8,12 +8,22 @@ public class Cliente {
     private String cpf;
     private String telefone;
 
+    private Conta conta;
+
     public Cliente(int idCliente, String nome, int idade, String cpf, String telefone) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
         this.telefone = telefone;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }
+
+    public Conta getConta() {
+        return conta;
     }
 
     public int getIdCliente() {

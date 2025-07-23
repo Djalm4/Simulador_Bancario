@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BancoCliente {
-    private Random random = new Random();
-    private ArrayList<Cliente> clientes;
+    final private Random random = new Random();
+    final private ArrayList<Cliente> clientes;
     private int proxId = 1;
 
     public BancoCliente(){
@@ -18,9 +18,13 @@ public class BancoCliente {
         String telefone = gerartelefone();
 
         Cliente novo = new Cliente(proxId++, nome, idade, cpf, telefone);
+
+        int idConta = random.nextInt(1000) + 1;
+        Conta novaConta = new Conta();
+        novo.setConta(novaConta);
         clientes.add(novo);
         return novo;
-    }  //Gera o cliente automatico
+    }
 
     private String gerarCpf(){
         StringBuilder cpf = new StringBuilder();
@@ -41,5 +45,15 @@ public class BancoCliente {
         for(Cliente c : clientes){
             System.out.println(c);
         }
+    }
+
+    public Conta buscarId(int id){
+        for(Cliente cliente : clientes){
+            Conta conta =   cliente.getConta();
+            if(conta != null && conta.getIdConta() == id){
+                return conta;
+            }
+        }
+        return null;
     }
 }
